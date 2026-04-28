@@ -31,7 +31,7 @@ namespace PlaywrightNET9
         {
             await using var browser = await Playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
             {
-                Headless = false,
+                Headless = true,
             });
             var context = await browser.NewContextAsync();
             var page = await context.NewPageAsync();
