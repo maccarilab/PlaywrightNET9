@@ -31,7 +31,7 @@ namespace PlaywrightNET9
         {
             await using var browser = await Playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
             {
-                Headless = true,
+                Headless = false,
             });
             var context = await browser.NewContextAsync();
             var page = await context.NewPageAsync();
@@ -45,7 +45,9 @@ namespace PlaywrightNET9
             await page.WaitForTimeoutAsync(3000);
             await page.ScreenshotAsync(new()
             {
-                Path = "HomeScreenshot.jpg",
+                Path = "./../../../HomeScreenshot.jpg",
+                //string fileProcessicsv = "./../../../Processi.csv";
+                //C:\Lab2026\PlaywrightNET9\PlaywrightNET9\UnitTest1.cs
                 FullPage = true
             });
         }
