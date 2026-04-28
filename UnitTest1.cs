@@ -1,4 +1,6 @@
-﻿namespace PlaywrightNET9
+﻿using Microsoft.Playwright;
+
+namespace PlaywrightNET9
 {
     [Parallelizable(ParallelScope.Self)]
     [TestFixture]
@@ -23,6 +25,29 @@
 
             // Expects the URL to contain intro.
             await Expect(Page).ToHaveURLAsync(new Regex(".*intro"));
+        }
+        [Test]
+        public async Task VersioneX_81()
+        {
+            await using var browser = await Playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+            {
+                Headless = false,
+            });
+            var context = await browser.NewContextAsync();
+            var page = await context.NewPageAsync();
+            await page.GotoAsync("http://10.0.0.5:81/login");
+            await page.GetByRole(AriaRole.Textbox, new() { Name = "Username" }).ClickAsync();
+            await page.GetByRole(AriaRole.Textbox, new() { Name = "Username" }).FillAsync("provaz");
+            await page.GetByRole(AriaRole.Button, new() { Name = "Continua" }).ClickAsync();
+            await page.GetByRole(AriaRole.Textbox, new() { Name = "Password" }).ClickAsync();
+            await page.GetByRole(AriaRole.Textbox, new() { Name = "Password" }).FillAsync("demo");
+            await page.GetByRole(AriaRole.Button, new() { Name = "Invia" }).ClickAsync();
+            await page.WaitForTimeoutAsync(3000);
+            await page.ScreenshotAsync(new()
+            {
+                Path = "HomeScreenshot.jpg",
+                FullPage = true
+            });
         }
     }
 }
