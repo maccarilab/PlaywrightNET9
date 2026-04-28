@@ -35,13 +35,13 @@ namespace PlaywrightNET9
             });
             var context = await browser.NewContextAsync();
             var page = await context.NewPageAsync();
-            await page.GotoAsync("http://10.0.0.5:81/login");
-            await page.GetByRole(AriaRole.Textbox, new() { Name = "Username" }).ClickAsync();
-            await page.GetByRole(AriaRole.Textbox, new() { Name = "Username" }).FillAsync("provaz");
-            await page.GetByRole(AriaRole.Button, new() { Name = "Continua" }).ClickAsync();
-            await page.GetByRole(AriaRole.Textbox, new() { Name = "Password" }).ClickAsync();
-            await page.GetByRole(AriaRole.Textbox, new() { Name = "Password" }).FillAsync("demo");
-            await page.GetByRole(AriaRole.Button, new() { Name = "Invia" }).ClickAsync();
+            await page.GotoAsync("https://www.pendolariumbri.it/");
+            //await page.GetByRole(AriaRole.Textbox, new() { Name = "Username" }).ClickAsync();
+            //await page.GetByRole(AriaRole.Textbox, new() { Name = "Username" }).FillAsync("provaz");
+            //await page.GetByRole(AriaRole.Button, new() { Name = "Continua" }).ClickAsync();
+            //await page.GetByRole(AriaRole.Textbox, new() { Name = "Password" }).ClickAsync();
+            //await page.GetByRole(AriaRole.Textbox, new() { Name = "Password" }).FillAsync("demo");
+            //await page.GetByRole(AriaRole.Button, new() { Name = "Invia" }).ClickAsync();
             await page.WaitForTimeoutAsync(3000);
             await page.ScreenshotAsync(new()
             {
