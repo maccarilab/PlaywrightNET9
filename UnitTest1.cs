@@ -45,7 +45,7 @@ namespace PlaywrightNET9
             await page.WaitForTimeoutAsync(3000);
             await page.ScreenshotAsync(new()
             {
-                Path = "./../../../Screenshot/HomeScreenshot.jpg",
+                Path = "./../../../Screenshot/HomeScreenshot2.jpg",
                 //string fileProcessicsv = "./../../../Processi.csv";
                 //C:\Lab2026\PlaywrightNET9\PlaywrightNET9\UnitTest1.cs
                 FullPage = true
